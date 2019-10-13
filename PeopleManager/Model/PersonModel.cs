@@ -9,7 +9,15 @@ namespace PeopleManager.Model
     public class PersonModel
     {
         public int Id { get; set; }
-        public string Lastname { get; set; }
+        public string LastName { get; set; }
         public string FirstName { get; set; }
-    }
+
+		private string personDisplayInfo;
+		public string PersonDisplayInfo
+		{
+			get { return string.Format($"{LastName} {FirstName}"); }
+
+		}
+
+	}
 }
