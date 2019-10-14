@@ -9,6 +9,25 @@ namespace PeopleManager.DataAccess
 {
 	public static class DataAccess
 	{
+		public static IDataConnection Connection { get; set; }
 		public static string ConnectionString { get => ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString; }
+
+		public static void InitializeConnection(ConnectionType type)
+		{
+			switch(type)
+			{
+				case ConnectionType.Dapper:
+				{
+					Connection = new DapperConnection();
+					break;
+				}
+			}
+		}
+
+	}
+
+	public enum ConnectionType
+	{
+		Dapper
 	}
 }

@@ -12,7 +12,6 @@ namespace PeopleManager.Model
         public string LastName { get; set; }
         public string FirstName { get; set; }
 
-		private string personDisplayInfo;
 		public string PersonDisplayInfo
 		{
 			get { return string.Format($"{LastName} {FirstName}"); }
