@@ -39,5 +39,10 @@ namespace WindowsFormsPeopleManager
 			}
 			UpdatePeopleListBox();
 		}
+
+		private void RedirectToAddNewPersonFormButton_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

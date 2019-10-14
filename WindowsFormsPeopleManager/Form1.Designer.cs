@@ -31,6 +31,7 @@
 			this.listOfPeopleListbox = new System.Windows.Forms.ListBox();
 			this.searchTextBox = new System.Windows.Forms.TextBox();
 			this.searchButton = new System.Windows.Forms.Button();
+			this.RedirectToAddNewPersonFormButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// listOfPeopleListbox
@@ -59,11 +60,22 @@
 			this.searchButton.UseVisualStyleBackColor = true;
 			this.searchButton.Click += new System.EventHandler(this.Button1_Click);
 			// 
+			// RedirectToAddNewPersonFormButton
+			// 
+			this.RedirectToAddNewPersonFormButton.Location = new System.Drawing.Point(12, 204);
+			this.RedirectToAddNewPersonFormButton.Name = "RedirectToAddNewPersonFormButton";
+			this.RedirectToAddNewPersonFormButton.Size = new System.Drawing.Size(100, 42);
+			this.RedirectToAddNewPersonFormButton.TabIndex = 3;
+			this.RedirectToAddNewPersonFormButton.Text = "Insert";
+			this.RedirectToAddNewPersonFormButton.UseVisualStyleBackColor = true;
+			this.RedirectToAddNewPersonFormButton.Click += new System.EventHandler(this.RedirectToAddNewPersonFormButton_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.RedirectToAddNewPersonFormButton);
 			this.Controls.Add(this.searchButton);
 			this.Controls.Add(this.searchTextBox);
 			this.Controls.Add(this.listOfPeopleListbox);
@@ -79,6 +91,7 @@
 		private System.Windows.Forms.ListBox listOfPeopleListbox;
 		private System.Windows.Forms.TextBox searchTextBox;
 		private System.Windows.Forms.Button searchButton;
+		private System.Windows.Forms.Button RedirectToAddNewPersonFormButton;
 	}
 }
 
