@@ -1,0 +1,15 @@
+﻿
+create table People (
+	id INT,
+	FirstName VARCHAR(50),
+	LastName VARCHAR(50)
+);
+
+create table Address (
+	PersonID int identity,
+	Country VARCHAR(50) not null,
+	State VARCHAR(50) null,
+	City VARCHAR(50) null,
+	ZIPCode VARCHAR(50) null,
+	FOREIGN KEY (PersonID) REFERENCES People(Id)
+);
