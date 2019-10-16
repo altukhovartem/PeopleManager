@@ -18,7 +18,7 @@ namespace WindowsFormsPeopleManager
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			DataAccess.InitializeConnection(ConnectionType.Dapper);
-			Application.Run(new Form1());
+			Application.Run(new MainForm());
 		}
 	}
 }
