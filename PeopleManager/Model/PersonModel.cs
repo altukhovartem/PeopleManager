@@ -14,8 +14,7 @@ namespace PeopleManager.Model
 
 		public string PersonDisplayInfo
 		{
-			get { return string.Format($"{LastName} {FirstName}"); }
-
+			get { return string.Format($"{Id} {LastName} {FirstName}"); }
 		}
 
 	}
