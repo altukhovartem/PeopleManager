@@ -6,10 +6,11 @@ create table People (
 );
 
 create table Address (
-	PersonID int identity,
+	PersonID int Primary Key,
 	Country VARCHAR(50) not null,
 	State VARCHAR(50) null,
 	City VARCHAR(50) null,
+	Street VARCHAR(50) null,
 	ZIPCode VARCHAR(50) null,
 	FOREIGN KEY (PersonID) REFERENCES People(Id)
 );
