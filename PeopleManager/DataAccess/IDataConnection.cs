@@ -9,6 +9,7 @@ namespace PeopleManager.DataAccess
 {
 	public interface IDataConnection
 	{
-		void InsertNewPerson(PersonModel model);
+		void InsertPerson(PersonModel model);
+		void InsertAddress(PersonModel personModel, AddressModel addressModel);
 	}
 }

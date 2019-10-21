@@ -48,7 +48,7 @@
     <Compile Include="DataAccess\DapperConnection.cs" />
     <Compile Include="DataAccess\DataAccess.cs" />
     <Compile Include="DataAccess\IDataConnection.cs" />
-    <Compile Include="Model\ContactModel.cs" />
+    <Compile Include="Model\AddressModel.cs" />
     <Compile Include="Model\PersonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
