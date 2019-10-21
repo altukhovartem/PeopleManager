@@ -23,10 +23,20 @@ namespace WindowsFormsPeopleManager
 		private void Button1_Click(object sender, EventArgs e)
 		{
 			//TODO Validation
-			PersonModel model = new PersonModel();
-			model.LastName = lastNameTextBox.Text;
-			model.FirstName = FirstNameTextBox.Text;
-			DataAccess.Connection.InsertNewPerson(model);
+			PersonModel person = new PersonModel();
+			person.LastName = lastNameTextBox.Text;
+			person.FirstName = FirstNameTextBox.Text;
+
+			AddressModel address = new AddressModel();
+			address.Country = countryTextbox.Text;
+			address.State = stateTextBox.Text;
+			address.City = cityTextbox.Text;
+			address.Street = streetTextbox.Text;
+			address.ZIPCode = Convert.ToInt32(zIPCodeTextBox.Text);
+
+
+			DataAccess.Connection.InsertPerson(person);
+			DataAccess.Connection.InsertAddress(person, address);
 			//TODO sign of successful operation
 		}
 	}
