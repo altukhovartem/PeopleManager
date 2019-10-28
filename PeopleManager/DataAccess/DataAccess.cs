@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PeopleManager.DataAccess
 {
-	public static class DataAccess
+	public class DataAccess
 	{
 		public static IDataConnection Connection { get; set; }
 		public static string ConnectionString { get => ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString; }

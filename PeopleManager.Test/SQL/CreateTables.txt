@@ -1,9 +1,15 @@
 ﻿
+drop table address;
+
+drop table people;
+
+
 create table People (
-	id INT,
+	Id INT primary key,
 	FirstName VARCHAR(50),
 	LastName VARCHAR(50)
 );
+
 
 create table Address (
 	PersonID int Primary Key,
@@ -12,5 +18,6 @@ create table Address (
 	City VARCHAR(50) null,
 	Street VARCHAR(50) null,
 	ZIPCode VARCHAR(50) null,
-	FOREIGN KEY (PersonID) REFERENCES People(Id)
+	FOREIGN KEY (PersonID) REFERENCES People(Id) 
+	on delete cascade
 );
