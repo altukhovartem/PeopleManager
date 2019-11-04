@@ -39,5 +39,70 @@ namespace WindowsFormsPeopleManager
 			DataAccess.Connection.InsertAddress(person, address);
 			//TODO sign of successful operation
 		}
+
+		private void InsertButton_Click(object sender, EventArgs e)
+		{
+			bool textBoxIsNotEmpty = false;
+			textBoxIsNotEmpty = CheckTextBoxesForData(this.Controls);
+
+			if (textBoxIsNotEmpty)
+			{
+				DialogResult result = MessageBox.Show("Are you sure you want to discard you changes?", "123", MessageBoxButtons.OKCancel);
+
+				if (result == DialogResult.OK)
+				{
+					ResetAllTextBoxes(this.Controls);
+				}
+
+			}
+
+		}
+
+		private bool CheckTextBoxesForData(Control.ControlCollection controls)
+		{
+			bool textBoxIsNotEmpty = false;
+			foreach (Control c in controls)
+			{
+				if(c.Controls.Count == 0)
+				{
+					if (c is TextBox)
+					{
+						if (c.Text.Length > 0)
+						{
+							textBoxIsNotEmpty = true;
+						}
+					}
+				}
+				else
+				{
+					CheckTextBoxesForData(c.Controls);
+				}
+			}
+
+			return textBoxIsNotEmpty;
+		}
+
+		private void ResetAllTextBoxes(Control.ControlCollection controls)
+		{
+			foreach (Control c in controls)
+			{
+				if (c.Controls.Count == 0)
+				{
+					if (c is TextBox)
+					{
+						if (c.Text.Length > 0)
+						{
+							c.ResetText();
+						}
+					}
+				}
+				else
+				{
+					ResetAllTextBoxes(c.Controls);
+				}
+			}
+		}
 	}
+
+
 }

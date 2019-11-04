@@ -33,7 +33,7 @@
 			this.FirstNameTextBox = new System.Windows.Forms.TextBox();
 			this.lastNameTextBox = new System.Windows.Forms.TextBox();
 			this.lastNameLabel = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.saveButton = new System.Windows.Forms.Button();
 			this.stateTextBox = new System.Windows.Forms.TextBox();
 			this.stateLabel = new System.Windows.Forms.Label();
 			this.countryTextbox = new System.Windows.Forms.TextBox();
@@ -42,14 +42,15 @@
 			this.cityTextbox = new System.Windows.Forms.TextBox();
 			this.cityLabel = new System.Windows.Forms.Label();
 			this.streetTextbox = new System.Windows.Forms.TextBox();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.addressGroupBox = new System.Windows.Forms.GroupBox();
 			this.zIPCodeTextBox = new System.Windows.Forms.TextBox();
 			this.zIPCodeLabel = new System.Windows.Forms.Label();
 			this.deleteButton = new System.Windows.Forms.Button();
 			this.previousPersonButton = new System.Windows.Forms.Button();
 			this.nextPersonButton = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.groupBox1.SuspendLayout();
+			this.cancelButton = new System.Windows.Forms.Button();
+			this.insertButton = new System.Windows.Forms.Button();
+			this.addressGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -93,15 +94,15 @@
 			this.lastNameLabel.TabIndex = 3;
 			this.lastNameLabel.Text = "Last Name:";
 			// 
-			// button1
+			// saveButton
 			// 
-			this.button1.Location = new System.Drawing.Point(293, 12);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(82, 66);
-			this.button1.TabIndex = 5;
-			this.button1.Text = "Save";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.Button1_Click);
+			this.saveButton.Location = new System.Drawing.Point(340, 9);
+			this.saveButton.Name = "saveButton";
+			this.saveButton.Size = new System.Drawing.Size(82, 66);
+			this.saveButton.TabIndex = 5;
+			this.saveButton.Text = "Save";
+			this.saveButton.UseVisualStyleBackColor = true;
+			this.saveButton.Click += new System.EventHandler(this.Button1_Click);
 			// 
 			// stateTextBox
 			// 
@@ -167,24 +168,24 @@
 			this.streetTextbox.Size = new System.Drawing.Size(144, 26);
 			this.streetTextbox.TabIndex = 13;
 			// 
-			// groupBox1
+			// addressGroupBox
 			// 
-			this.groupBox1.Controls.Add(this.zIPCodeTextBox);
-			this.groupBox1.Controls.Add(this.countryLabel);
-			this.groupBox1.Controls.Add(this.zIPCodeLabel);
-			this.groupBox1.Controls.Add(this.countryTextbox);
-			this.groupBox1.Controls.Add(this.stateLabel);
-			this.groupBox1.Controls.Add(this.streetTextbox);
-			this.groupBox1.Controls.Add(this.stateTextBox);
-			this.groupBox1.Controls.Add(this.streetLabel);
-			this.groupBox1.Controls.Add(this.cityLabel);
-			this.groupBox1.Controls.Add(this.cityTextbox);
-			this.groupBox1.Location = new System.Drawing.Point(16, 212);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(293, 254);
-			this.groupBox1.TabIndex = 14;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Address";
+			this.addressGroupBox.Controls.Add(this.zIPCodeTextBox);
+			this.addressGroupBox.Controls.Add(this.countryLabel);
+			this.addressGroupBox.Controls.Add(this.zIPCodeLabel);
+			this.addressGroupBox.Controls.Add(this.countryTextbox);
+			this.addressGroupBox.Controls.Add(this.stateLabel);
+			this.addressGroupBox.Controls.Add(this.streetTextbox);
+			this.addressGroupBox.Controls.Add(this.stateTextBox);
+			this.addressGroupBox.Controls.Add(this.streetLabel);
+			this.addressGroupBox.Controls.Add(this.cityLabel);
+			this.addressGroupBox.Controls.Add(this.cityTextbox);
+			this.addressGroupBox.Location = new System.Drawing.Point(16, 212);
+			this.addressGroupBox.Name = "addressGroupBox";
+			this.addressGroupBox.Size = new System.Drawing.Size(293, 254);
+			this.addressGroupBox.TabIndex = 14;
+			this.addressGroupBox.TabStop = false;
+			this.addressGroupBox.Text = "Address";
 			// 
 			// zIPCodeTextBox
 			// 
@@ -204,7 +205,7 @@
 			// 
 			// deleteButton
 			// 
-			this.deleteButton.Location = new System.Drawing.Point(381, 12);
+			this.deleteButton.Location = new System.Drawing.Point(428, 9);
 			this.deleteButton.Name = "deleteButton";
 			this.deleteButton.Size = new System.Drawing.Size(82, 66);
 			this.deleteButton.TabIndex = 15;
@@ -213,7 +214,7 @@
 			// 
 			// previousPersonButton
 			// 
-			this.previousPersonButton.Location = new System.Drawing.Point(500, 12);
+			this.previousPersonButton.Location = new System.Drawing.Point(587, 9);
 			this.previousPersonButton.Name = "previousPersonButton";
 			this.previousPersonButton.Size = new System.Drawing.Size(82, 66);
 			this.previousPersonButton.TabIndex = 16;
@@ -222,33 +223,44 @@
 			// 
 			// nextPersonButton
 			// 
-			this.nextPersonButton.Location = new System.Drawing.Point(588, 12);
+			this.nextPersonButton.Location = new System.Drawing.Point(675, 9);
 			this.nextPersonButton.Name = "nextPersonButton";
 			this.nextPersonButton.Size = new System.Drawing.Size(82, 66);
 			this.nextPersonButton.TabIndex = 17;
 			this.nextPersonButton.Text = ">>>";
 			this.nextPersonButton.UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// cancelButton
 			// 
-			this.button2.Location = new System.Drawing.Point(205, 12);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(82, 66);
-			this.button2.TabIndex = 18;
-			this.button2.Text = "Cancel";
-			this.button2.UseVisualStyleBackColor = true;
+			this.cancelButton.Location = new System.Drawing.Point(164, 9);
+			this.cancelButton.Name = "cancelButton";
+			this.cancelButton.Size = new System.Drawing.Size(82, 66);
+			this.cancelButton.TabIndex = 18;
+			this.cancelButton.Text = "Cancel";
+			this.cancelButton.UseVisualStyleBackColor = true;
+			// 
+			// insertButton
+			// 
+			this.insertButton.Location = new System.Drawing.Point(252, 9);
+			this.insertButton.Name = "insertButton";
+			this.insertButton.Size = new System.Drawing.Size(82, 66);
+			this.insertButton.TabIndex = 19;
+			this.insertButton.Text = "Insert";
+			this.insertButton.UseVisualStyleBackColor = true;
+			this.insertButton.Click += new System.EventHandler(this.InsertButton_Click);
 			// 
 			// InsertNewPersonForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(937, 597);
-			this.Controls.Add(this.button2);
+			this.Controls.Add(this.insertButton);
+			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.nextPersonButton);
 			this.Controls.Add(this.previousPersonButton);
 			this.Controls.Add(this.deleteButton);
-			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.addressGroupBox);
+			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.lastNameTextBox);
 			this.Controls.Add(this.lastNameLabel);
 			this.Controls.Add(this.FirstNameTextBox);
@@ -256,8 +268,8 @@
 			this.Controls.Add(this.label1);
 			this.Name = "InsertNewPersonForm";
 			this.Text = "Insert New Person";
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.addressGroupBox.ResumeLayout(false);
+			this.addressGroupBox.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -270,7 +282,7 @@
 		private System.Windows.Forms.TextBox FirstNameTextBox;
 		private System.Windows.Forms.TextBox lastNameTextBox;
 		private System.Windows.Forms.Label lastNameLabel;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button saveButton;
 		private System.Windows.Forms.TextBox stateTextBox;
 		private System.Windows.Forms.Label stateLabel;
 		private System.Windows.Forms.TextBox countryTextbox;
@@ -279,12 +291,13 @@
 		private System.Windows.Forms.TextBox cityTextbox;
 		private System.Windows.Forms.Label cityLabel;
 		private System.Windows.Forms.TextBox streetTextbox;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox addressGroupBox;
 		private System.Windows.Forms.TextBox zIPCodeTextBox;
 		private System.Windows.Forms.Label zIPCodeLabel;
 		private System.Windows.Forms.Button deleteButton;
 		private System.Windows.Forms.Button previousPersonButton;
 		private System.Windows.Forms.Button nextPersonButton;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button cancelButton;
+		private System.Windows.Forms.Button insertButton;
 	}
 }
