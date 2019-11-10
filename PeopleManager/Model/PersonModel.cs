@@ -8,13 +8,13 @@ namespace PeopleManager.Model
 {
     public class PersonModel
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
 
 		public string PersonDisplayInfo
 		{
-			get { return string.Format($"{Id} {LastName} {FirstName}"); }
+			get { return string.Format($"{ID} {LastName} {FirstName}"); }
 		}
 
 	}

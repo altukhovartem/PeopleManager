@@ -15,6 +15,8 @@ namespace WindowsFormsPeopleManager
 {
 	public partial class InsertNewPersonForm : Form
 	{
+		public static int currentPersonID = 0;
+
 		public InsertNewPersonForm()
 		{
 			InitializeComponent();
@@ -25,7 +27,7 @@ namespace WindowsFormsPeopleManager
 			//TODO Validation
 			PersonModel person = new PersonModel();
 			person.LastName = lastNameTextBox.Text;
-			person.FirstName = FirstNameTextBox.Text;
+			person.FirstName = firstNameTextBox.Text;
 
 			AddressModel address = new AddressModel();
 			address.Country = countryTextbox.Text;
@@ -35,7 +37,7 @@ namespace WindowsFormsPeopleManager
 			address.ZIPCode = Convert.ToInt32(zIPCodeTextBox.Text);
 
 
-			DataAccess.Connection.InsertPerson(person);
+			currentPersonID = DataAccess.Connection.InsertPerson(person);
 			DataAccess.Connection.InsertAddress(person, address);
 			//TODO sign of successful operation
 		}
@@ -52,10 +54,9 @@ namespace WindowsFormsPeopleManager
 				if (result == DialogResult.OK)
 				{
 					ResetAllTextBoxes(this.Controls);
+					currentPersonID = 0;
 				}
-
 			}
-
 		}
 
 		private bool CheckTextBoxesForData(Control.ControlCollection controls)
@@ -101,6 +102,28 @@ namespace WindowsFormsPeopleManager
 					ResetAllTextBoxes(c.Controls);
 				}
 			}
+		}
+
+		private void deleteButton_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void nextPersonButton_Click(object sender, EventArgs e)
+		{
+			PersonModel personModel = DataAccess.Connection.GetPersonByID(currentPersonID);
+			AddressModel addressModel = DataAccess.Connection.GetAddressByID(personModel.ID);
+
+			currentPersonID = personModel.ID;
+
+			firstNameTextBox.Text = personModel.FirstName;
+			lastNameTextBox.Text = personModel.LastName;
+
+			countryTextbox.Text = addressModel.Country;
+			stateTextBox.Text = addressModel.State;
+			cityTextbox.Text = addressModel.City;
+			streetTextbox.Text = addressModel.Street;
+			zIPCodeTextBox.Text = addressModel.ZIPCode.ToString();
 		}
 	}
 

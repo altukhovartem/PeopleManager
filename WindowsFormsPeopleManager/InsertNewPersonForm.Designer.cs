@@ -30,7 +30,7 @@
 		{
 			this.label1 = new System.Windows.Forms.Label();
 			this.firstNameLabel = new System.Windows.Forms.Label();
-			this.FirstNameTextBox = new System.Windows.Forms.TextBox();
+			this.firstNameTextBox = new System.Windows.Forms.TextBox();
 			this.lastNameTextBox = new System.Windows.Forms.TextBox();
 			this.lastNameLabel = new System.Windows.Forms.Label();
 			this.saveButton = new System.Windows.Forms.Button();
@@ -71,12 +71,12 @@
 			this.firstNameLabel.TabIndex = 1;
 			this.firstNameLabel.Text = "First Name:";
 			// 
-			// FirstNameTextBox
+			// firstNameTextBox
 			// 
-			this.FirstNameTextBox.Location = new System.Drawing.Point(133, 129);
-			this.FirstNameTextBox.Name = "FirstNameTextBox";
-			this.FirstNameTextBox.Size = new System.Drawing.Size(144, 26);
-			this.FirstNameTextBox.TabIndex = 2;
+			this.firstNameTextBox.Location = new System.Drawing.Point(133, 129);
+			this.firstNameTextBox.Name = "firstNameTextBox";
+			this.firstNameTextBox.Size = new System.Drawing.Size(144, 26);
+			this.firstNameTextBox.TabIndex = 2;
 			// 
 			// lastNameTextBox
 			// 
@@ -229,6 +229,7 @@
 			this.nextPersonButton.TabIndex = 17;
 			this.nextPersonButton.Text = ">>>";
 			this.nextPersonButton.UseVisualStyleBackColor = true;
+			this.nextPersonButton.Click += new System.EventHandler(this.nextPersonButton_Click);
 			// 
 			// cancelButton
 			// 
@@ -263,7 +264,7 @@
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.lastNameTextBox);
 			this.Controls.Add(this.lastNameLabel);
-			this.Controls.Add(this.FirstNameTextBox);
+			this.Controls.Add(this.firstNameTextBox);
 			this.Controls.Add(this.firstNameLabel);
 			this.Controls.Add(this.label1);
 			this.Name = "InsertNewPersonForm";
@@ -279,7 +280,7 @@
 
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label firstNameLabel;
-		private System.Windows.Forms.TextBox FirstNameTextBox;
+		private System.Windows.Forms.TextBox firstNameTextBox;
 		private System.Windows.Forms.TextBox lastNameTextBox;
 		private System.Windows.Forms.Label lastNameLabel;
 		private System.Windows.Forms.Button saveButton;

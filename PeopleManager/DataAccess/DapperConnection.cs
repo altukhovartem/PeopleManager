@@ -12,9 +12,7 @@ namespace PeopleManager.DataAccess
 {
 	public class DapperConnection : IDataConnection
 	{
-
-
-		public void InsertPerson(PersonModel model)
+		public int InsertPerson(PersonModel model)
 		{
 			using (IDbConnection connection = new SqlConnection(DataAccess.ConnectionString))
 			{
@@ -24,7 +22,8 @@ namespace PeopleManager.DataAccess
 				p.Add("@ID", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
 				connection.Execute("InsertNewPerson", p, commandType: CommandType.StoredProcedure);
-				model.Id = p.Get<int>("@ID");
+				model.ID = p.Get<int>("@ID");
+				return model.ID;
 			}
 		}
 
@@ -33,7 +32,7 @@ namespace PeopleManager.DataAccess
 			using (IDbConnection connection = new SqlConnection(DataAccess.ConnectionString))
 			{
 				DynamicParameters p = new DynamicParameters();
-				p.Add("@PersonID", personModel.Id);
+				p.Add("@PersonID", personModel.ID);
 				p.Add("@Country", addressModel.Country);
 				p.Add("@State", addressModel.State);
 				p.Add("@City", addressModel.City);
@@ -42,6 +41,30 @@ namespace PeopleManager.DataAccess
 
 				connection.Execute("InsertNewAddress", p, commandType: CommandType.StoredProcedure);
 			}
+		}
+
+		public PersonModel GetPersonByID(int ID)
+		{
+			PersonModel personModel;
+			using (IDbConnection connection = new SqlConnection(DataAccess.ConnectionString))
+			{
+				DynamicParameters p = new DynamicParameters();
+				p.Add("@InputID", ID);
+				personModel = connection.Query<PersonModel>("[dbo].[GetPersonByID]", p, commandType: CommandType.StoredProcedure).First();
+			}
+			return personModel;
+		}
+
+		public AddressModel GetAddressByID(int ID)
+		{
+			AddressModel addressModel;
+			using (IDbConnection connection = new SqlConnection(DataAccess.ConnectionString))
+			{
+				DynamicParameters p = new DynamicParameters();
+				p.Add("@InputID", ID);
+				addressModel = connection.Query<AddressModel>("[dbo].[GetAddressByID]", p, commandType: CommandType.StoredProcedure).First();
+			}
+			return addressModel;
 		}
 	}
 }
