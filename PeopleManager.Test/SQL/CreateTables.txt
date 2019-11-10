@@ -1,15 +1,12 @@
-﻿
-drop table address;
+﻿drop table address;
 
 drop table people;
 
-
 create table People (
-	Id INT primary key,
+	Id INT primary key identity,
 	FirstName VARCHAR(50),
 	LastName VARCHAR(50)
 );
-
 
 create table Address (
 	PersonID int Primary Key,
