@@ -1,6 +1,7 @@
-﻿drop table address;
+﻿drop table if exists address;
 
-drop table people;
+drop table if exists people;
+
 
 create table People (
 	Id INT primary key identity,
@@ -10,7 +11,7 @@ create table People (
 
 create table Address (
 	PersonID int Primary Key,
-	Country VARCHAR(50) not null,
+	Country VARCHAR(50) null,
 	State VARCHAR(50) null,
 	City VARCHAR(50) null,
 	Street VARCHAR(50) null,
