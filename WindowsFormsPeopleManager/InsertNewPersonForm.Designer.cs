@@ -102,7 +102,7 @@
 			this.saveButton.TabIndex = 5;
 			this.saveButton.Text = "Save";
 			this.saveButton.UseVisualStyleBackColor = true;
-			this.saveButton.Click += new System.EventHandler(this.Button1_Click);
+			this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
 			// 
 			// stateTextBox
 			// 
@@ -220,6 +220,7 @@
 			this.previousPersonButton.TabIndex = 16;
 			this.previousPersonButton.Text = "<<<";
 			this.previousPersonButton.UseVisualStyleBackColor = true;
+			this.previousPersonButton.Click += new System.EventHandler(this.previousPersonButton_Click);
 			// 
 			// nextPersonButton
 			// 

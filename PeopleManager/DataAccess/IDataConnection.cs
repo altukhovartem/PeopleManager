@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static PeopleManager.DataAccess.DapperConnection;
 
 namespace PeopleManager.DataAccess
 {
@@ -11,7 +12,7 @@ namespace PeopleManager.DataAccess
 	{
 		int InsertPerson(PersonModel model);
 		void InsertAddress(PersonModel personModel, AddressModel addressModel);
-		PersonModel GetPersonByID(int ID);
-		AddressModel GetAddressByID(int ID);
+		List<PersonModel> GetListOfPeople();
+		List<AddressModel> GetListOfAddresses();
 	}
 }

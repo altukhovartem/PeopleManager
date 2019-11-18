@@ -43,28 +43,28 @@ namespace PeopleManager.DataAccess
 			}
 		}
 
-		public PersonModel GetPersonByID(int ID)
+		public List<PersonModel> GetListOfPeople()
 		{
-			PersonModel personModel;
+			List<PersonModel> listOfPersonModel;
 			using (IDbConnection connection = new SqlConnection(DataAccess.ConnectionString))
 			{
 				DynamicParameters p = new DynamicParameters();
-				p.Add("@InputID", ID);
-				personModel = connection.Query<PersonModel>("[dbo].[GetPersonByID]", p, commandType: CommandType.StoredProcedure).First();
+				string sqlText = "select * from People";
+				listOfPersonModel = connection.Query<PersonModel>(sqlText, p, commandType: CommandType.Text).ToList();
+				return listOfPersonModel;
 			}
-			return personModel;
 		}
 
-		public AddressModel GetAddressByID(int ID)
+		public List<AddressModel> GetListOfAddresses()
 		{
-			AddressModel addressModel;
+			List<AddressModel> listOfAddresses;
 			using (IDbConnection connection = new SqlConnection(DataAccess.ConnectionString))
 			{
 				DynamicParameters p = new DynamicParameters();
-				p.Add("@InputID", ID);
-				addressModel = connection.Query<AddressModel>("[dbo].[GetAddressByID]", p, commandType: CommandType.StoredProcedure).First();
+				string sqlText = "select * from Address";
+				listOfAddresses = connection.Query<AddressModel>(sqlText, p, commandType: CommandType.Text).ToList();
+				return listOfAddresses;
 			}
-			return addressModel;
 		}
 	}
 }

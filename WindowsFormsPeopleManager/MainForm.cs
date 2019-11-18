@@ -17,7 +17,6 @@ namespace WindowsFormsPeopleManager
 	public partial class MainForm : Form
 	{
 		private List<PersonModel> listOfPeople = new List<PersonModel>();
-		private PersonModel currentPerson = null;
 
 		public MainForm()
 		{
