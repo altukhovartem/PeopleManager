@@ -18,15 +18,14 @@ namespace WindowsFormsPeopleManager
 		public int? currentID;
 		public List<PersonModel> ListOfPeople { get; set; }
 		public List<AddressModel> ListOfAddresses { get; set; }
-
 		public InsertNewPersonForm()
 		{
 			InitializeComponent();
-			ListOfPeople = DataAccess.Connection.GetListOfPeople();
-			ListOfAddresses = DataAccess.Connection.GetListOfAddresses();
+			FetchData();
 			currentID = 0;
 		}
 
+		#region Buttons
 		private void saveButton_Click(object sender, EventArgs e)
 		{
 			//TODO Validation
@@ -44,9 +43,10 @@ namespace WindowsFormsPeopleManager
 
 			currentID = DataAccess.Connection.InsertPerson(person);
 			DataAccess.Connection.InsertAddress(person, address);
+			MessageBox.Show("A new record has been added");
+			FetchData();
 			//TODO sign of successful operation
 		}
-
 		private void InsertButton_Click(object sender, EventArgs e)
 		{
 			bool textBoxIsNotEmpty = CheckTextBoxesForData(Controls);
@@ -62,7 +62,44 @@ namespace WindowsFormsPeopleManager
 				}
 			}
 		}
+		private void nextPersonButton_Click(object sender, EventArgs e)
+		{
+			currentID++;
 
+			if (currentID == ListOfPeople.Select(x=>x.ID).Max()-1)
+			{
+				currentID = 0;
+			}
+
+			PersonModel personModel = ListOfPeople.Where(x => x.ID >= currentID).FirstOrDefault();
+			AddressModel addressModel = ListOfAddresses.Where(x => x.PersonId == personModel?.ID).FirstOrDefault();
+
+			currentID = personModel?.ID ?? 0;
+
+			AssignValuesToPersonFields(personModel);
+			AssignValuesToAddressFields(addressModel);
+		}
+		private void previousPersonButton_Click(object sender, EventArgs e)
+		{
+			currentID--;
+
+			if(currentID == -1)
+			{
+				currentID = ListOfPeople.Select(x=>x.ID).Max();
+			}
+
+			PersonModel personModel = ListOfPeople.Where(x => x.ID <= currentID).LastOrDefault();
+			AddressModel addressModel = ListOfAddresses.Where(x => x.PersonId == personModel?.ID).FirstOrDefault();
+
+			currentID = personModel?.ID ?? 0;
+
+			AssignValuesToPersonFields(personModel);
+			AssignValuesToAddressFields(addressModel);
+		}
+
+		#endregion
+
+		#region Helpers
 		private bool CheckTextBoxesForData(Control.ControlCollection controls)
 		{
 			bool textBoxIsNotEmpty = false;
@@ -86,9 +123,6 @@ namespace WindowsFormsPeopleManager
 
 			return textBoxIsNotEmpty;
 		}
-
-
-		// todo - rewrite it as extension method
 		private void ResetAllTextBoxes(Control.ControlCollection controls)
 		{
 			foreach (Control c in controls)
@@ -109,51 +143,11 @@ namespace WindowsFormsPeopleManager
 				}
 			}
 		}
-
-		private void nextPersonButton_Click(object sender, EventArgs e)
-		{
-			currentID++;
-
-			if (currentID == ListOfPeople.Select(x=>x.ID).Max()-1)
-			{
-				currentID = 0;
-			}
-
-			PersonModel personModel = ListOfPeople.Where(x => x.ID >= currentID).FirstOrDefault();
-			AddressModel addressModel = ListOfAddresses.Where(x => x.PersonId == personModel?.ID).FirstOrDefault();
-
-			currentID = personModel?.ID ?? 0;
-
-			AssignValuesToPersonFields(personModel);
-			AssignValuesToAddressFields(addressModel);
-		}
-
-		private void previousPersonButton_Click(object sender, EventArgs e)
-		{
-			currentID--;
-
-			if(currentID == -1)
-			{
-				currentID = ListOfPeople.Select(x=>x.ID).Max();
-			}
-
-			PersonModel personModel = ListOfPeople.Where(x => x.ID <= currentID).LastOrDefault();
-			AddressModel addressModel = ListOfAddresses.Where(x => x.PersonId == personModel?.ID).FirstOrDefault();
-
-			currentID = personModel?.ID ?? 0;
-
-			AssignValuesToPersonFields(personModel);
-			AssignValuesToAddressFields(addressModel);
-		}
-
-
-
 		private void AssignValuesToPersonFields(PersonModel personModel)
 		{
 			firstNameTextBox.Text = personModel?.FirstName;
 			lastNameTextBox.Text = personModel?.LastName;
 		}
-
 		private void AssignValuesToAddressFields(AddressModel addressModel)
 		{
 			countryTextbox.Text = addressModel?.Country;
@@ -162,9 +156,16 @@ namespace WindowsFormsPeopleManager
 			streetTextbox.Text = addressModel?.Street;
 			zIPCodeTextBox.Text = addressModel?.ZIPCode;
 		}
+		private void FetchData()
+		{
+			ListOfPeople = DataAccess.Connection.GetListOfPeople();
+			ListOfAddresses = DataAccess.Connection.GetListOfAddresses();
+		}
 
-	
+		#endregion
+
+		// todo - rewrite it as extension method
 	}
-
-
 }
+
+
