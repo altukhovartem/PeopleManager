@@ -76,14 +76,14 @@
 			this.firstNameTextBox.Location = new System.Drawing.Point(133, 129);
 			this.firstNameTextBox.Name = "firstNameTextBox";
 			this.firstNameTextBox.Size = new System.Drawing.Size(144, 26);
-			this.firstNameTextBox.TabIndex = 2;
+			this.firstNameTextBox.TabIndex = 1;
 			// 
 			// lastNameTextBox
 			// 
 			this.lastNameTextBox.Location = new System.Drawing.Point(133, 163);
 			this.lastNameTextBox.Name = "lastNameTextBox";
 			this.lastNameTextBox.Size = new System.Drawing.Size(144, 26);
-			this.lastNameTextBox.TabIndex = 4;
+			this.lastNameTextBox.TabIndex = 2;
 			// 
 			// lastNameLabel
 			// 
@@ -99,7 +99,7 @@
 			this.saveButton.Location = new System.Drawing.Point(340, 9);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(82, 66);
-			this.saveButton.TabIndex = 5;
+			this.saveButton.TabIndex = 19;
 			this.saveButton.Text = "Save";
 			this.saveButton.UseVisualStyleBackColor = true;
 			this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -109,7 +109,7 @@
 			this.stateTextBox.Location = new System.Drawing.Point(126, 79);
 			this.stateTextBox.Name = "stateTextBox";
 			this.stateTextBox.Size = new System.Drawing.Size(144, 26);
-			this.stateTextBox.TabIndex = 9;
+			this.stateTextBox.TabIndex = 4;
 			// 
 			// stateLabel
 			// 
@@ -125,7 +125,7 @@
 			this.countryTextbox.Location = new System.Drawing.Point(126, 45);
 			this.countryTextbox.Name = "countryTextbox";
 			this.countryTextbox.Size = new System.Drawing.Size(144, 26);
-			this.countryTextbox.TabIndex = 7;
+			this.countryTextbox.TabIndex = 3;
 			// 
 			// countryLabel
 			// 
@@ -150,7 +150,7 @@
 			this.cityTextbox.Location = new System.Drawing.Point(126, 113);
 			this.cityTextbox.Name = "cityTextbox";
 			this.cityTextbox.Size = new System.Drawing.Size(144, 26);
-			this.cityTextbox.TabIndex = 11;
+			this.cityTextbox.TabIndex = 5;
 			// 
 			// cityLabel
 			// 
@@ -166,7 +166,7 @@
 			this.streetTextbox.Location = new System.Drawing.Point(126, 144);
 			this.streetTextbox.Name = "streetTextbox";
 			this.streetTextbox.Size = new System.Drawing.Size(144, 26);
-			this.streetTextbox.TabIndex = 13;
+			this.streetTextbox.TabIndex = 6;
 			// 
 			// addressGroupBox
 			// 
@@ -192,7 +192,7 @@
 			this.zIPCodeTextBox.Location = new System.Drawing.Point(126, 179);
 			this.zIPCodeTextBox.Name = "zIPCodeTextBox";
 			this.zIPCodeTextBox.Size = new System.Drawing.Size(144, 26);
-			this.zIPCodeTextBox.TabIndex = 16;
+			this.zIPCodeTextBox.TabIndex = 7;
 			// 
 			// zIPCodeLabel
 			// 
