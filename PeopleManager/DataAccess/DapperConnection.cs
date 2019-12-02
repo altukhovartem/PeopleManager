@@ -21,7 +21,9 @@ namespace PeopleManager.DataAccess
 				p.Add("@FirstName", model.FirstName);
 				p.Add("@ID", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-				connection.Execute("InsertNewPerson", p, commandType: CommandType.StoredProcedure);
+				string querry = "insert into People (FirstName, LastName) values (@FirstName, @LastName); select @ID = SCOPE_IDENTITY();";
+
+				connection.Execute(querry, p, commandType: CommandType.Text);
 				model.ID = p.Get<int>("@ID");
 				return model.ID;
 			}
@@ -39,7 +41,9 @@ namespace PeopleManager.DataAccess
 				p.Add("@Street", addressModel.Street);
 				p.Add("@ZIPCode", addressModel.ZIPCode);
 
-				connection.Execute("InsertNewAddress", p, commandType: CommandType.StoredProcedure);
+				string querry = "insert into[Address](PersonID, Country, State, City, Street, ZIPCode) values(@PersonID, @Country, @State, @City, @Street, @ZIPCode)";
+
+				connection.Execute(querry, p, commandType: CommandType.Text);
 			}
 		}
 
