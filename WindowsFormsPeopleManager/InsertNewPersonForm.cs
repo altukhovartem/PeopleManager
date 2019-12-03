@@ -47,21 +47,6 @@ namespace WindowsFormsPeopleManager
 			FetchData();
 			//TODO sign of successful operation
 		}
-		private void InsertButton_Click(object sender, EventArgs e)
-		{
-			bool textBoxIsNotEmpty = CheckTextBoxesForData(Controls);
-
-			if (textBoxIsNotEmpty)
-			{
-				DialogResult result = MessageBox.Show("Are you sure you want to discard you changes?", "123", MessageBoxButtons.OKCancel);
-
-				if (result == DialogResult.OK)
-				{
-					ResetAllTextBoxes(this.Controls);
-					currentID = 0;
-				}
-			}
-		}
 		private void nextPersonButton_Click(object sender, EventArgs e)
 		{
 			currentID++;
@@ -96,6 +81,16 @@ namespace WindowsFormsPeopleManager
 			AssignValuesToPersonFields(personModel);
 			AssignValuesToAddressFields(addressModel);
 		}
+		private void InsertButton_Click(object sender, EventArgs e)
+		{
+			ClearForm();
+		}
+		private void cancelButton_Click(object sender, EventArgs e)
+		{
+			ClearForm();
+		}
+
+	
 
 		#endregion
 
@@ -160,6 +155,21 @@ namespace WindowsFormsPeopleManager
 		{
 			ListOfPeople = DataAccess.Connection.GetListOfPeople();
 			ListOfAddresses = DataAccess.Connection.GetListOfAddresses();
+		}
+		private void ClearForm()
+		{
+			bool textBoxIsNotEmpty = CheckTextBoxesForData(Controls);
+
+			if (textBoxIsNotEmpty)
+			{
+				DialogResult result = MessageBox.Show("Are you sure you want to discard you changes?", "123", MessageBoxButtons.OKCancel);
+
+				if (result == DialogResult.OK)
+				{
+					ResetAllTextBoxes(this.Controls);
+					currentID = 0;
+				}
+			}
 		}
 
 		#endregion
