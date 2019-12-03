@@ -89,8 +89,16 @@ namespace WindowsFormsPeopleManager
 		{
 			ClearForm();
 		}
-
-	
+		private void deleteButton_Click(object sender, EventArgs e)
+		{
+			if(AskUserToDeleteRecord())
+			{
+				DataAccess.Connection.DeletePerson(currentID);
+				ResetAllTextBoxes(this.Controls);
+				currentID = 0;
+				FetchData();
+			}
+		}
 
 		#endregion
 
@@ -162,13 +170,25 @@ namespace WindowsFormsPeopleManager
 
 			if (textBoxIsNotEmpty)
 			{
-				DialogResult result = MessageBox.Show("Are you sure you want to discard you changes?", "123", MessageBoxButtons.OKCancel);
+				DialogResult result = MessageBox.Show("Are you sure you want to discard you changes?", "Discard", MessageBoxButtons.OKCancel);
 
 				if (result == DialogResult.OK)
 				{
 					ResetAllTextBoxes(this.Controls);
 					currentID = 0;
 				}
+			}
+		}
+		private bool AskUserToDeleteRecord()
+		{
+			DialogResult result = MessageBox.Show("Are you sure you want to delete this record?", "Delete", MessageBoxButtons.OKCancel);
+			if(result == DialogResult.OK)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
 

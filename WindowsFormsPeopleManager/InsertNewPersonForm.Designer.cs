@@ -211,6 +211,7 @@
 			this.deleteButton.TabIndex = 15;
 			this.deleteButton.Text = "Delete";
 			this.deleteButton.UseVisualStyleBackColor = true;
+			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
 			// 
 			// previousPersonButton
 			// 
