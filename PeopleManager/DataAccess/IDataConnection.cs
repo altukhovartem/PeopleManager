@@ -14,5 +14,6 @@ namespace PeopleManager.DataAccess
 		void InsertAddress(PersonModel personModel, AddressModel addressModel);
 		List<PersonModel> GetListOfPeople();
 		List<AddressModel> GetListOfAddresses();
+		void DeletePerson(int? ID);
 	}
 }

@@ -70,5 +70,17 @@ namespace PeopleManager.DataAccess
 				return listOfAddresses;
 			}
 		}
+
+		public void DeletePerson(int? ID)
+		{
+			using(IDbConnection connection = new SqlConnection(DataAccess.ConnectionString))
+			{
+				DynamicParameters p = new DynamicParameters();
+				p.Add("@ID", ID);
+				string sqlText = "Delete from People where ID = @ID;";
+
+				connection.Execute(sqlText, p, commandType:CommandType.Text);
+			}
+		}
 	}
 }
